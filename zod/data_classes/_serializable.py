@@ -1,6 +1,6 @@
 import json
 
-from dataclass_wizard import JSONSerializable as _JSONSerializable
+from dataclass_wizard import JSONWizard as _JSONSerializable
 
 
 class JSONSerializable(_JSONSerializable):

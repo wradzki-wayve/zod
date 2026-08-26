@@ -19,12 +19,12 @@ dependencies = [
 
 [project.optional-dependencies]
 cli = [
-    "typer[all]>=0.15.0",
+    "typer>=0.15.0",
     "dropbox>=11.36.0",
     "click>=8.4.0",
 ]
 all = [
-    "typer[all]>=0.15.0",
+    "typer>=0.15.0",
     "dropbox>=11.36.0",
     "click>=8.4.0",
     "opencv-python>=4,<5",

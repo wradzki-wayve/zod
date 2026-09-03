@@ -99,6 +99,7 @@ class ZodDataset(ABC):
                 chain.from_iterable(all_ids.values()),
                 desc="Loading infos",
                 chunksize=50 if self._version == FULL else 1,
+                total=sum(len(v) for v in all_ids.values()),
             )
             infos = {frame.id: frame for frame in infos}
         else:

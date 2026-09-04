@@ -94,7 +94,7 @@ def _create_pointcloud_input_pixor(
         A PIXOR style BEV projection of the input point cloud.
 
     """
-    point_indices_c = np.cast["int32"]((points[:, 2] - settings.pixor_z_min) / settings.grid_cell_size)
+    point_indices_c = np.asarray((points[:, 2] - settings.pixor_z_min) / settings.grid_cell_size, dtype="int32")
     point_indices_c = 1 + np.clip(
         point_indices_c,
         a_min=-1,
@@ -156,7 +156,7 @@ def get_grid_indices_xy(cloud: np.ndarray, settings: BEVSettings) -> np.ndarray:
 
     """
     # Convert points to indices
-    indices_xy = np.cast["int32"]((cloud[:, :2] - settings.grid_min) / settings.grid_cell_size)
+    indices_xy = np.asarray((cloud[:, :2] - settings.grid_min) / settings.grid_cell_size, dtype="int32")
     return indices_xy
 
 

@@ -156,8 +156,6 @@ class BEVBox:
     @staticmethod
     def _create_od_vis_background(input_array: np.ndarray) -> np.ndarray:
         """Create a gray occupancy grid as background to visualize over."""
-        occupancy = np.maximum.reduce(
-            np.asarray(np.abs(input_array) > 0.0, dtype="float32"), axis=0, keepdims=True
-        )
+        occupancy = np.maximum.reduce(np.asarray(np.abs(input_array) > 0.0, dtype="float32"), axis=0, keepdims=True)
         vis_bg = np.transpose(np.repeat(occupancy * 77, 3, axis=0), [2, 1, 0])
         return vis_bg

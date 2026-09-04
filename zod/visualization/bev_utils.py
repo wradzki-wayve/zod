@@ -1,6 +1,6 @@
 """Utilities for creating point cloud input representation."""
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List, Tuple
 
 import numpy as np
@@ -25,8 +25,8 @@ class BEVSettings:
 
     # pylint: disable=too-many-instance-attributes
     # General settings
-    grid_min: np.ndarray = np.array([-50.0, 0.0])
-    grid_max: np.ndarray = np.array([50.0, 100.0])
+    grid_min: np.ndarray = field(default_factory=lambda: np.array([-50.0, 0.0]))
+    grid_max: np.ndarray = field(default_factory=lambda: np.array([50.0, 100.0]))
     grid_cell_size: float = 0.1  # Default in PIXOR: 0.1
 
     # Pixor settings
